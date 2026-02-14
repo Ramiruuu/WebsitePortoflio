@@ -69,7 +69,7 @@ body {
 
 .nav-list li a:hover,
 .nav-list li a:focus {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(240, 234, 234, 0.911);
   outline: none;
 }
 
