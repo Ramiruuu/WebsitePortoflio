@@ -230,14 +230,14 @@
       "description": "Philippine Indigenous Communities and Peace Education",
       "credit": "3"
     },
-    },
+    }
       "year_level": "3rd",
       "sem": "2nd",
       "code": "FreeElec",
       "description": "Foreign Language",
       "credit": "3"
     },
-    },
+    }
       "year_level": "3rd",
       "sem": "2nd",
       "code": "IT223",
@@ -246,3 +246,4 @@
     },
   ]
 }
+
