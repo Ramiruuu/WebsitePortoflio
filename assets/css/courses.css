@@ -1,0 +1,328 @@
+/* =============================================
+   COURSES SECTION — courses.css
+   Save as: assets/css/courses.css
+   ============================================= */
+
+#courses {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#courses h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25em;
+    margin-bottom: 0.4rem;
+    color: #fff;
+}
+
+.courses-subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.92rem;
+    margin-bottom: 2rem;
+}
+
+/* ── Search Bar ──────────────────────────────── */
+.cr-search-wrapper {
+    position: relative;
+    max-width: 520px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.cr-search-icon {
+    position: absolute;
+    left: 1rem;
+    color: rgba(255, 255, 255, 0.35);
+    pointer-events: none;
+    display: flex;
+}
+
+.cr-search-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 0.8rem 9rem 0.8rem 2.75rem;
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.cr-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.cr-search-input:focus {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04),
+                0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.cr-search-count {
+    position: absolute;
+    right: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+/* ── Year Block ──────────────────────────────── */
+.cr-year-block {
+    margin-bottom: 4rem;
+}
+
+.cr-year-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cr-year-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+    min-width: 2.5rem;
+    user-select: none;
+}
+
+.cr-year-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cr-year-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #fff;
+    margin: 0;
+}
+
+.cr-year-total {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-top: 0.1rem;
+}
+
+.cr-year-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,255,255,0.08), transparent);
+}
+
+/* ── Semester Block ──────────────────────────── */
+.cr-sem-block {
+    margin-bottom: 2.25rem;
+}
+
+.cr-sem-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.cr-sem-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.cr-sem-badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+}
+
+/* ── Cards Grid ──────────────────────────────── */
+.cr-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+}
+
+/* ── Individual Card ─────────────────────────── */
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.cr-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: default;
+    animation: cardReveal 0.5s ease both;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cr-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.cr-card:hover .cr-card-glow {
+    opacity: 1;
+}
+
+.cr-card:hover .cr-dot {
+    transform: scale(1.5);
+    background: #fff;
+}
+
+/* Glow effect behind card */
+.cr-card-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 13px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.08), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cr-card-inner {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.04) 0%,
+        rgba(255,255,255,0.015) 50%,
+        rgba(255,255,255,0.025) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 1rem 1rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    height: 100%;
+    transition: border-color 0.25s, background 0.25s;
+}
+
+.cr-card:hover .cr-card-inner {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.06) 0%,
+        rgba(255,255,255,0.025) 50%,
+        rgba(255,255,255,0.04) 100%
+    );
+}
+
+/* Highlighted card when searched */
+.cr-card.cr-match .cr-card-inner {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.08) 0%,
+        rgba(255,255,255,0.035) 100%
+    );
+}
+
+.cr-code {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    transition: color 0.2s;
+}
+
+.cr-card:hover .cr-code {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.cr-desc {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.38;
+    margin: 0;
+    flex: 1;
+}
+
+.cr-desc mark {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+.cr-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.cr-units {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.02em;
+}
+
+.cr-units small {
+    font-weight: 400;
+    font-size: 0.7rem;
+}
+
+.cr-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: block;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+/* ── Empty / Error States ────────────────────── */
+.cr-empty,
+.cr-error {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.9rem;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 900px) {
+    .cr-cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    #courses { padding: 3rem 1rem; }
+    .cr-search-wrapper { max-width: 100%; }
+    .cr-cards-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .cr-year-number { font-size: 2.5rem; }
+}
