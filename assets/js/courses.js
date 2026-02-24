@@ -54,7 +54,7 @@
         grouped[c.year_level][c.sem].push(c);
     });
 
-    // Search bar
+    // Search bar logic 
     container.innerHTML = `
         <div class="cr-search-wrapper">
         <svg class="cr-search-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15"
