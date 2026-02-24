@@ -15,10 +15,6 @@
         container.innerHTML = '<p class="cr-error">⚠️ Could not load courses.</p>';
     });
 
-
-    // ── Fix: handles the malformed JSON in your GitHub file ──────────────────
-    // Some entries are missing the opening { so we repair the raw text first,
-    // then extract every course object with a broad regex.
     function parseCoursesFromText(raw) {
     // Step 1: Insert missing { before any bare property that starts a record
     // Pattern: a closing }, or , followed by whitespace then "year_level"
@@ -147,16 +143,18 @@
     }
 
 
-    // ── Search ───────────────────────────────────────────────────────────────
+    // ── Search  Functionality ───────────────────────────────────────────────────────────────
     function setupSearch() {
     const input   = document.getElementById('cr-search');
     const countEl = document.getElementById('cr-count');
     const emptyEl = document.getElementById('cr-empty');
 
+    // On input, filter cards and update counts
     input.addEventListener('input', () => {
         const q = input.value.trim().toLowerCase();
-        let visible = 0;
+        let visible = 0; 
 
+        // Filtering cards
         document.querySelectorAll('.cr-card').forEach(card => {
         const match = !q || card.dataset.code.includes(q) || card.dataset.desc.includes(q);
         card.style.display = match ? '' : 'none';
@@ -173,6 +171,7 @@
         
         if (match) visible++;
         });
+        // END
 
         document.querySelectorAll('.cr-sem-block').forEach(b => {
         b.style.display = [...b.querySelectorAll('.cr-card')].some(c => c.style.display !== 'none') ? '' : 'none';
